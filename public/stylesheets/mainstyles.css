@@ -1,3 +1,40 @@
 body{
     background-color: gray;
 }
+
+
+ul{
+    /*display: inline-block;*/
+    padding: 0;
+}
+
+li{
+    list-style: none;
+    border: 2px solid black;
+}
+
+#mainContainer{
+    text-align: center;
+}
+
+#innerContainer{
+    display: inline-block;
+    position: relative;
+    width: 500px;
+    
+}
+
+.task{
+    display: inline-block;
+    position: absolute;
+    
+    
+}
+
+.task.people{
+    left:0;
+}
+
+.task.tasks{
+    right:0;
+}
