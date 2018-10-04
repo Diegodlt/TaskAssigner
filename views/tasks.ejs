@@ -1,36 +1,37 @@
 <% include ./partials/header.ejs %>
 
 
-<div id = "mainContainer">
-    <div id = "innerContainer">
-        
-        <div class = "task people" >
+    <div id = "mainContainer">
+        <div id = "innerContainer">
             
-            <input type = "text" class = "peopleList">
-            <ul class = "peopleList">
-                <li>left</li>
-            </ul>
+            <div class = "task people" >
+                
+                <input type = "text" class = "peopleList">
+                <ul class = "peopleList">
+                    <li>left</li>
+                </ul>
+                
+            </div>
             
+            
+            <button id = "assign">Assign</button>
+            
+            <div class = "task tasks">
+                
+                <input type = "text" class = "taskList">
+                <ul class = "taskList">
+                    <li>right</li>
+                </ul>
+                
+            </div>
         </div>
-        
-        
-        <button>Assign</button>
-        
-        <div class = "task tasks">
-            
-            <input type = "text" class = "taskList">
-            <ul class = "taskList">
-                <li>right</li>
-            </ul>
-            
-        </div>
-      
-        
-        
     </div>
-</div>
 
-
+    <div id = "results">
+            
+        </div>
+        
+        <button id = "reset">Reset</button>
 
 
 
