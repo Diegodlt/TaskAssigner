@@ -38,3 +38,11 @@ li{
 .task.tasks{
     right:0;
 }
+
+.subjects{
+    border: 2px solid black;
+}
+
+#reset{
+    display: none;
+}
