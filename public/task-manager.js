@@ -24,6 +24,10 @@ $("#reset").on("click",function(){
     $("#mainContainer").css("display","block");
     $("#reset").css("display","none");
     $("#results").remove();
+     //Reset arrays
+    subjectArr = [];
+    taskArr =[];
+    count = 0;
     
 })
 
@@ -31,9 +35,7 @@ $("#reset").on("click",function(){
 $("#assign").on("click",function(){
     
     
-    //Reset arrays
-    subjectArr = [];
-    taskArr =[];
+  
     
     $("ul[class='peopleList'").find("li").each(function(){
     subjectArr.push(new subject($(this).text()));
@@ -61,7 +63,12 @@ function displayResults(){
    
     
     subjectArr.forEach(function(subject){
-        $("#results").append("<div class = 'subjects'>"+ subject.name + "</div>");
+        let subjectDiv = "<div class = 'subjects "+ subject.name + "'>"+ subject.name + "</div>";
+        $("#results").append(subjectDiv);
+        for(let i=0; i<subject.tasks.length; i++){
+            let currentDiv = ".subjects." + subject.name ;
+            $(currentDiv).append("<div>"+ subject.tasks[i].value + "</div>");
+        }
     });
 }
 
@@ -75,7 +82,7 @@ function assignTasks(){
             
             let taskSelected = false;
             while(!taskSelected && (count<terminatingFlag)){
-                console.log("while");
+                console.log("while"); 
                 randomNum = rng(taskArr.length);
               
                 if(!taskArr[randomNum].hasBeenSelected){
