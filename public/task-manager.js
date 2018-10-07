@@ -8,14 +8,17 @@ var count = 0;
 
 $("input[type='text']").keypress(function(event){
     
+ 
+    if($(this).val() != ""){
 
-    if(event.which == 13){
-        
-        let selectedList = "ul[class = \'" + $(this).attr("class") + "\']";
-        let listItem = $(this).val();
-        $(this).val("");
-        
-         $(selectedList).prepend("<li>"+ listItem+ "</li>");
+        if(event.which == 13){
+            
+            let selectedList = "ul[class = \'" + $(this).attr("class") + "\']";
+            let listItem = $(this).val();
+            $(this).val("");
+            
+             $(selectedList).prepend("<li>"+ listItem+ "</li>");
+        }
     }
 });
 
@@ -63,11 +66,12 @@ function displayResults(){
    
     
     subjectArr.forEach(function(subject){
-        let subjectDiv = "<div class = 'subjects "+ subject.name + "'>"+ subject.name + "</div>";
-        $("#results").append(subjectDiv);
+        let subjectName = subject.name.replace(/\s/g, '');
+        let subjectDiv = "<div class = 'subjects "+ subjectName + "'><h3>"+ subject.name + "</h3></div>";
+        $("#results").prepend(subjectDiv);
         for(let i=0; i<subject.tasks.length; i++){
-            let currentDiv = ".subjects." + subject.name ;
-            $(currentDiv).append("<div>"+ subject.tasks[i].value + "</div>");
+            let currentDiv = ".subjects." + subjectName ;
+            $(currentDiv).append("<div class ='subject'>"+ subject.tasks[i].value + "</div>");
         }
     });
 }

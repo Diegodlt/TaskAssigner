@@ -1,26 +1,67 @@
 body{
-    background-color: gray;
+    background: #74ebd5;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ACB6E5, #74ebd5);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ACB6E5, #74ebd5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 
+input{
+    width: 250px;
+    border: none;
+    padding: 5px;
+    font-size: 20px;
+    
+    
+}
+
+button[id = 'assign']{
+    color: white;
+    background-color: #1da1f2;
+    border:none;
+    font-size: 15px;
+    padding: 5px;
+    width: 130px;
+    border-radius: 10px;
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 100px;
+}
 
 ul{
-    /*display: inline-block;*/
+    list-style-type: none;
     padding: 0;
+    margin: 0;
+    
+    
 }
 
 li{
+    font-size: 20px;
+    color: rgb(60,60,60);
+    padding: 5px;
+    border-bottom: 1px solid gray;
     list-style: none;
-    border: 2px solid black;
+    background-color: #edf0f5;
+    width: 250px;
+    word-wrap: break-word;
+    
 }
+
 
 #mainContainer{
     text-align: center;
+    
+    
 }
 
 #innerContainer{
     display: inline-block;
     position: relative;
-    width: 500px;
+    width: 800px;
+    
+    
     
 }
 
@@ -33,16 +74,33 @@ li{
 
 .task.people{
     left:0;
+
 }
 
 .task.tasks{
     right:0;
+    
 }
 
 .subjects{
     border: 2px solid black;
+    margin-top: 30px;
+    width: 75%;
+    margin: 30px auto 0 auto;
+}
+
+.subjects div{
+    margin: 5px;
+    display: inline-block;
+    padding: 3px;
+    border: 2px solid blue;
 }
 
 #reset{
     display: none;
+    float: right;
+}
+
+p{
+    display: inline-block;
 }
