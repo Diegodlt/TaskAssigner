@@ -6,6 +6,7 @@ var count = 0;
 
 
 
+
 $("input[type='text']").keypress(function(event){
     
  
@@ -21,6 +22,7 @@ $("input[type='text']").keypress(function(event){
         }
     }
 });
+
 
 $("#reset").on("click",function(){
     
@@ -71,7 +73,7 @@ function displayResults(){
         $("#results").prepend(subjectDiv);
         for(let i=0; i<subject.tasks.length; i++){
             let currentDiv = ".subjects." + subjectName ;
-            $(currentDiv).append("<div class ='subject'>"+ subject.tasks[i].value + "</div>");
+            $(currentDiv).append("<div class ='list-items'>"+ subject.tasks[i].value + "</div>");
         }
     });
 }
