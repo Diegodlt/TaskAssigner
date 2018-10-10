@@ -6,7 +6,7 @@ var count = 0;
 
 
 
-
+// Get user input and add it to the corresponding list
 $("input[type='text']").keypress(function(event){
     
  
@@ -18,12 +18,24 @@ $("input[type='text']").keypress(function(event){
             let listItem = $(this).val();
             $(this).val("");
             
-             $(selectedList).prepend("<li>"+ listItem+ "</li>");
+             $(selectedList).prepend("<li>"+ listItem+ "<span class = 'delete'><i class='fas fa-times'></span></i>");
+            
+             $(".delete").on("click", function(){
+                 $(this).parent().remove();
+             });
+            
         }
     }
 });
 
+$(".delete").on("click",function(){
+    console.log("Hello");
+    $(this).css("background-color","blue");
+});
 
+
+
+// Resets the list to it's original form, before the task were randomly assigned
 $("#reset").on("click",function(){
     
     $("#mainContainer").css("display","block");
@@ -36,7 +48,7 @@ $("#reset").on("click",function(){
     
 })
 
-
+// Takes the list items and puts them into an array
 $("#assign").on("click",function(){
     
     
@@ -110,12 +122,14 @@ function rng(number){
     return Math.floor((Math.random()*number))
 }
 
+
+// Task class
 function task(data){
     this.value= data;
     this.hasBeenSelected= false;
 }
 
-
+// Subject class
 function subject(name){
     this.name = name;
     this.tasks =[];
