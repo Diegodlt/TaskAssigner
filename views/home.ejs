@@ -1,0 +1,25 @@
+<% include ./partials/header.ejs %>
+
+
+
+
+<ul class = "home-events" style = "margin: 20px 30px">
+    <li>test</li>
+    <% for(let i=0; i< events.length; i++){ %>
+
+       <a href = "/<%= events[i]._id %>">
+           <li id = "<%= events[i]._id %>"><%= events[i].title %></li>
+       </a>
+    <% } %>
+</ul>
+
+
+<form action = "/new" method = "POST" style= "margin-left: 30px">
+    <input type = "text" placeholder = "Event Name" name= "event"></input>
+    <input type = "submit" value = "New Event">
+</form>
+
+
+
+
+<% include ./partials/footer.ejs %>

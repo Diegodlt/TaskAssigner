@@ -1,0 +1,29 @@
+<% include ./partials/header.ejs %>
+    
+
+   <div id ='results'>
+       
+       
+       <% event.subjects.forEach(function(subject){ %>
+        <%  let subjectName = subject.name.replace(/\s/g, ''); %>
+         <div class = 'subjects <%= subjectName %>'><h3><%= subject.name %></h3>
+          <% for(let i=0; i<subject.tasks.length; i++){ %>
+             
+              
+              <div class ='list-items'><%= subject.tasks[i].value %></div>
+           <% } %>
+            </div>
+         <% }); %>
+         
+   
+       
+       
+       
+    </div>
+       
+      
+    
+    
+ 
+
+<% include ./partials/footer.ejs %>

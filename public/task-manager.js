@@ -28,11 +28,6 @@ $("input[type='text']").keypress(function(event){
     }
 });
 
-$(".delete").on("click",function(){
-    console.log("Hello");
-    $(this).css("background-color","blue");
-});
-
 
 
 // Resets the list to it's original form, before the task were randomly assigned
@@ -51,7 +46,7 @@ $("#reset").on("click",function(){
 // Takes the list items and puts them into an array
 $("#assign").on("click",function(){
     
-    
+   
   
     
     $("ul[class='peopleList'").find("li").each(function(){
@@ -64,8 +59,17 @@ $("#assign").on("click",function(){
     
     });
     
+    
     assignTasks();
     displayResults();
+    let title = $("h1").text();
+    
+    $.ajax({
+        type: "POST",
+        url: "/",
+        data : { subjects: subjectArr, title: title}
+       
+    });
     
 });
 
@@ -100,7 +104,7 @@ function assignTasks(){
             
             let taskSelected = false;
             while(!taskSelected && (count<terminatingFlag)){
-                console.log("while"); 
+              
                 randomNum = rng(taskArr.length);
               
                 if(!taskArr[randomNum].hasBeenSelected){
