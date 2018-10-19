@@ -1,8 +1,6 @@
 body{
-    background: #C9D6FF;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #E2E2E2, #C9D6FF);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #E2E2E2, #C9D6FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+   
+    background-color: #e1e4f2;
     margin: 0;
     padding: 0;
     
@@ -52,7 +50,7 @@ button[id = 'assign']:active{
 h1{
     text-align: center;
     margin-bottom: 100px;
-    color: white;
+    color: black;
 }
 
 ul{
@@ -205,46 +203,7 @@ li:hover span{
     
 }
 
-/********************************************************
 
-                Navbar
-
-*********************************************************/
-
-
-
-
-.navbar{
-    background-color: gray;
-    display: flex;
-    list-style: none;
-    
-}
-
-.navbar > li{
-    
-    width: 80px;
-    font-size: 1.5em;
-    text-align: center;
-    padding: 5px;
-    
-}
-
-.navbar > li:hover{
-    background-color: white;
-}
-
-.navbar  a:link, a:visited, a:hover, a:active {
-    text-decoration: none;
-    color: inherit;
-    
-}
-
-.navbar .navbar-home{
-    
-    margin-right: auto;
-    
-}
 
 /********************************************************
 
@@ -309,4 +268,16 @@ li:hover span{
     color: white;
 }
 
+/********************************************************
 
+                Back Arrow
+
+*********************************************************/
+
+
+.fas{
+    margin: 10px 0 0 10px;
+    font-size: 3em;
+    color: blue;
+    
+}
