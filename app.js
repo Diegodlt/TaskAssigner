@@ -1,6 +1,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
+var methodOverride = require("method-override");
 
 
 
@@ -8,14 +9,19 @@ var app = express();
 app.set("view engine","ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(methodOverride('_method'));
+
+
 mongoose.connect("mongodb://localhost:27017/taskAssigner", {useNewUrlParser: true});
 
 app.use(express.static(__dirname + "/public"));
 
 
 var eventSchema = new mongoose.Schema({
+    created: {type: Date, default: Date.now, expires: '12h' },
     title : String,
-    subjects : []
+    subjects : [],
+     created : {type: Date, default : Date.now}
 })
 
 var Event = mongoose.model("Event", eventSchema);
@@ -39,27 +45,43 @@ app.get("/", function(req, res){
 app.post("/", function(req,res){
     let incomingEvent = req.body.subjects;
     let eventTitle = req.body.title;
-    let ojb = {
+    let event= {
         title: eventTitle,
         subjects : incomingEvent
     }
-    Event.create(ojb);
+    Event.create(event, function(err, newEvent){
+        if(err){
+            res.redirect("/");
+        }else{
+            console.log("ELSE STATEMENT")
+             res.writeHead(200, { 'Content-Type': 'text/plain'});
+             res.end(""+newEvent._id);
+        }
+    });
+    
+ 
+
+    
     
 });
 
 //Show an individual event
 app.get("/:id",function(req,res){
+    
      Event.findById({_id: req.params.id}, function(err, foundEvent){
          if(err){
-             console.log("error")
+             
          }else{
-             console.log(foundEvent);
+             
              res.render("show",{event : foundEvent});
          }
      });
     
 });
 
+
+// Display the task page with the name chosen by the user
+//    this will not load if event name is left blank
 app.post("/new",function(req,res){
 
     var name = req.body.event;
@@ -69,6 +91,39 @@ app.post("/new",function(req,res){
         res.render("event", {name: name});
     }
 });
+
+// app.get("/new/:id", function(req, res){
+//     let eventObj = new Object();
+//     Event.findById(req.params.id, function(err, foundEvent){
+//         if(err){
+//             res.redirect("/")
+//         }else{
+//           res.render("event", {name : "", event: foundEvent});
+//         }
+        
+//     });
+//     console.log(req.params.id);
+    
+//     Event.findByIdAndRemove(req.params.id,function(err,obj) {
+//         if(err){
+//             console.log(err)
+//         }else{
+//             console.log(obj);
+//         }
+//     });
+
+// });
+
+
+app.delete("/:id",function(req,res){
+    Event.findByIdAndRemove(req.params.id,function(err){
+        if(err){
+            
+        }else{
+            res.redirect("/");
+        }
+    })
+})
 
 
 
