@@ -2,7 +2,7 @@
 var subjectArr = [];
 var taskArr = [];
 var count = 0;
-//Function to get text from li
+
 
 
 
@@ -30,19 +30,6 @@ $("input[type='text']").keypress(function(event){
 
 
 
-// Resets the list to it's original form, before the task were randomly assigned
-$("#reset").on("click",function(){
-    
-    $("#mainContainer").css("display","block");
-    $("#reset").css("display","none");
-    $("#results").remove();
-     //Reset arrays
-    subjectArr = [];
-    taskArr =[];
-    count = 0;
-    
-})
-
 // Takes the list items and puts them into an array
 $("#assign").on("click",function(){
     
@@ -61,38 +48,44 @@ $("#assign").on("click",function(){
     
     
     assignTasks();
-    displayResults();
+    // displayResults();
     let title = $("h1").text();
     
     $.ajax({
         type: "POST",
         url: "/",
-        data : { subjects: subjectArr, title: title}
+        data : { subjects: subjectArr, title: title},
+        
        
+    }).done(function(data){
+        console.log(data);
+        window.location.href = "/"+data;
     });
-    
+
 });
 
 
-
-function displayResults(){
+/* This was a function that displayed the list items when the website did not have 
+     a backend where it could handle routes
+*/
+// function displayResults(){
     
-    $("#mainContainer").after("<div id ='results'></div>");
-    $("#mainContainer").css("display","none");
-    $("#reset").css("display","block");
+//     $("#mainContainer").after("<div id ='results'></div>");
+//     $("#mainContainer").css("display","none");
+//     $("#reset").css("display","block");
     
    
     
-    subjectArr.forEach(function(subject){
-        let subjectName = subject.name.replace(/\s/g, '');
-        let subjectDiv = "<div class = 'subjects "+ subjectName + "'><h3>"+ subject.name + "</h3></div>";
-        $("#results").prepend(subjectDiv);
-        for(let i=0; i<subject.tasks.length; i++){
-            let currentDiv = ".subjects." + subjectName ;
-            $(currentDiv).append("<div class ='list-items'>"+ subject.tasks[i].value + "</div>");
-        }
-    });
-}
+//     subjectArr.forEach(function(subject){
+//         let subjectName = subject.name.replace(/\s/g, '');
+//         let subjectDiv = "<div class = 'subjects "+ subjectName + "'><h3>"+ subject.name + "</h3></div>";
+//         $("#results").prepend(subjectDiv);
+//         for(let i=0; i<subject.tasks.length; i++){
+//             let currentDiv = ".subjects." + subjectName ;
+//             $(currentDiv).append("<div class ='list-items'>"+ subject.tasks[i].value + "</div>");
+//         }
+//     });
+// }
 
 function assignTasks(){
     let terminatingFlag = taskArr.length;
@@ -121,7 +114,7 @@ function assignTasks(){
 }
 
 
-
+// Random number generator
 function rng(number){
     return Math.floor((Math.random()*number))
 }
