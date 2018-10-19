@@ -1,11 +1,15 @@
 <% include ./partials/header.ejs %>
     
+    
+    <h1><%= event.title %></h1>
 
    <div id ='results'>
        
+      
        
        <% event.subjects.forEach(function(subject){ %>
-        <%  let subjectName = subject.name.replace(/\s/g, ''); %>
+          
+        <%  let subjectName = subject.name.replace(/\s/g, ''); %> <!-- Had to remove white space beause of css class issues -->
          <div class = 'subjects <%= subjectName %>'><h3><%= subject.name %></h3>
           <% for(let i=0; i<subject.tasks.length; i++){ %>
              
@@ -14,16 +18,12 @@
            <% } %>
             </div>
          <% }); %>
-         
-   
-       
-       
-       
     </div>
+    
+    <form action = "\<%= event._id %>?_method=DELETE" method = "POST">
+      <button id = "delete">Delete</button>
+    </form>
+    
        
-      
-    
-    
- 
 
 <% include ./partials/footer.ejs %>
