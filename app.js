@@ -80,7 +80,7 @@ app.get("/:id",function(req,res){
 });
 
 
-// Display the task page with the name chosen by the user
+// Display the event page with the name chosen by the user
 //    this will not load if event name is left blank
 app.post("/new",function(req,res){
 
@@ -92,29 +92,9 @@ app.post("/new",function(req,res){
     }
 });
 
-// app.get("/new/:id", function(req, res){
-//     let eventObj = new Object();
-//     Event.findById(req.params.id, function(err, foundEvent){
-//         if(err){
-//             res.redirect("/")
-//         }else{
-//           res.render("event", {name : "", event: foundEvent});
-//         }
-        
-//     });
-//     console.log(req.params.id);
-    
-//     Event.findByIdAndRemove(req.params.id,function(err,obj) {
-//         if(err){
-//             console.log(err)
-//         }else{
-//             console.log(obj);
-//         }
-//     });
-
-// });
 
 
+// Delete an event
 app.delete("/:id",function(req,res){
     Event.findByIdAndRemove(req.params.id,function(err){
         if(err){
