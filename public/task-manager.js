@@ -6,7 +6,7 @@ var count = 0;
 
 
 
-// Get user input and add it to the corresponding list
+// Get user input and add it to the corresponding list in the new event page
 $("input[type='text']").keypress(function(event){
     
  

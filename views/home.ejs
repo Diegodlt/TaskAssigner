@@ -3,12 +3,20 @@
 
 
 <div class = "home">
+    <h1>Task Assigner</h1>
+    <div>
+        <p>Event Name:</p>
+        <p id="left-label">Date Created:</p>
+    </div>
     <ul>
-        <li>test</li>
+        
         <% for(let i=0; i< events.length; i++){ %>
     
            <a href = "/<%= events[i]._id %>">
-               <li id = "<%= events[i]._id %>"><%= events[i].title %></li>
+               <li id = "<%= events[i]._id %>">
+                   <%= events[i].title %>
+                   <span><%= events[i].created.toDateString() %></span>
+                </li>
            </a>
         <% } %>
     </ul>

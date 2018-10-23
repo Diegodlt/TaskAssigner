@@ -4,9 +4,48 @@ body{
     margin: 0;
     padding: 0;
     
+    
 }
 
 
+p{
+    display: inline-block;
+}
+
+h3{
+    font-size: 1.3em;
+    margin: 0;
+    margin-bottom: 5px;
+    padding: 10px 0 10px 20px;
+    background-color: #6f6f6f;
+    color: white;
+}
+
+
+h1{
+    text-align: center;
+    margin-bottom: 100px;
+    color: black;
+    letter-spacing: 2px;
+    font-family: 'Roboto', sans-serif;
+}
+
+h4{
+    border-top: 2px solid #777;
+    border-bottom: 2px solid #777;
+    padding: 5px 0;
+    letter-spacing: 2px;
+    margin-top: 0;
+    font-weight: lighter;
+}
+
+ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    
+    
+}
 
 
 input[type="text"]{
@@ -20,46 +59,13 @@ input[type="text"]{
     
 }
 
-button[id = 'assign']{
-    color: #1da1f2;
-    background-color: inherit;
-    border: 1px solid #1da1f2;
-    font-size: 15px;
-    padding: 5px;
-    width: 130px;
-    border-radius: 5px;
-    outline:none;
-}
-
-button[id = 'assign']:hover{
-    color: white;
-    background-color: #1da1f2 ;
-    border: 1px solid #1da1f2;
-    
-}
-
-button[id = 'assign']:active{
-    color: white;
-    background-color: #1573ad ;
-    
-}
 
 
+/********************************************************
 
+                New Event Page
 
-h1{
-    text-align: center;
-    margin-bottom: 100px;
-    color: black;
-}
-
-ul{
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    
-    
-}
+*********************************************************/
 
 #mainContainer li{
      font-family: 'K2D', sans-serif;
@@ -75,6 +81,8 @@ ul{
 }
 
 
+
+
 #mainContainer{
     text-align: center;
     
@@ -86,7 +94,26 @@ ul{
     position: relative;
     width: 800px;
     
+}
+
+#innerContainer li .delete{
+  
+    opacity: 0;
+    width: 0;
+    line-height: 18px;
+    color: #f44336;
+    font-size: 1.3em;
+    float: left;
+    transition: .2s linear;
     
+}
+
+
+#innerContainer li:hover span{
+    
+   
+    width: 30px;
+    opacity: 1;
     
 }
 
@@ -107,6 +134,37 @@ ul{
     
 }
 
+button[id = 'assign']{
+    color: #28a745;
+    background-color: inherit;
+    border: 1px solid #28a745;
+    font-size: 15px;
+    padding: 5px;
+    width: 130px;
+    border-radius: 5px;
+    outline:none;
+}
+
+button[id = 'assign']:hover{
+    color: white;
+    background-color: #28a745 ;
+    border: 1px solid #28a745;
+    
+}
+
+button[id = 'assign']:active{
+    color: white;
+    background-color: #1d7531 ;
+    
+}
+
+
+/********************************************************
+
+                Results Page
+
+*********************************************************/
+
 #results{
     display: flex;
     flex-direction: row;
@@ -117,6 +175,7 @@ ul{
     
     margin-top: 30px;
     background-color: rgb(220,220,220);
+    letter-spacing: 1px;
     border-radius: 5px;
     margin: 30px auto 0 auto;
     padding-bottom: 10px;
@@ -167,47 +226,11 @@ ul{
     color:white;
 }
 
-p{
-    display: inline-block;
-}
-
-h3{
-    font-size: 1.3em;
-    margin: 0;
-    margin-bottom: 5px;
-    padding: 10px 0 10px 20px;
-    background-color: #6f6f6f;
-    color: white;
-}
-
-
-
-li span{
-  
-    opacity: 0;
-    width: 0;
-    line-height: 18px;
-    color: #f44336;
-    font-size: 1.3em;
-    float: left;
-    transition: .2s linear;
-    
-}
-
-
-li:hover span{
-    
-   
-    width: 30px;
-    opacity: 1;
-    
-}
-
 
 
 /********************************************************
 
-                Home
+                Home Page
 
 *********************************************************/
 
@@ -221,7 +244,18 @@ li:hover span{
     border-bottom: 1px solid gray;
     padding: 5px;
     box-sizing: border-box;
+     border: 2px solid gray;
 }
+
+.home > h1{
+    width: 300px;
+    margin: 100px auto 50px auto;
+ 
+    padding: 10px 0;
+    letter-spacing: 2px;
+    
+}
+
 
 
 .home li:hover{
@@ -237,9 +271,9 @@ li:hover span{
 
 
 .home ul{
-    margin: 100px auto 10px auto;
+    margin: 0 auto 10px auto;
     width: 600px;
-    border: 2px solid gray;
+    
    
     
 }
@@ -268,16 +302,44 @@ li:hover span{
     color: white;
 }
 
+.home > div{
+    border-top: 2px solid #777;
+
+    width: 600px;
+    margin: auto;
+    box-sizing: border-box;
+    padding: 0 5px;
+    
+
+}
+
+.home p{
+    letter-spacing: 1px;
+     font-family: 'Roboto', sans-serif;
+}
+
+.home #left-label{
+    float: right;
+}
+
+.home span{
+    float: right;
+}
+
 /********************************************************
 
-                Back Arrow
+                Back Arrow Icon
 
 *********************************************************/
 
 
-.fas{
+.fa-arrow-left{
     margin: 10px 0 0 10px;
     font-size: 3em;
-    color: blue;
+    color: #1da1f2;
     
+}
+
+.fa-arrow-left:active{
+    color:#1573ad;
 }

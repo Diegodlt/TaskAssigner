@@ -20,8 +20,7 @@ app.use(express.static(__dirname + "/public"));
 var eventSchema = new mongoose.Schema({
     created: {type: Date, default: Date.now, expires: '12h' },
     title : String,
-    subjects : [],
-     created : {type: Date, default : Date.now}
+    subjects : []
 })
 
 var Event = mongoose.model("Event", eventSchema);
@@ -53,7 +52,6 @@ app.post("/", function(req,res){
         if(err){
             res.redirect("/");
         }else{
-            console.log("ELSE STATEMENT")
              res.writeHead(200, { 'Content-Type': 'text/plain'});
              res.end(""+newEvent._id);
         }
@@ -73,7 +71,7 @@ app.get("/:id",function(req,res){
              
          }else{
              
-             res.render("show",{event : foundEvent});
+             res.render("results",{event : foundEvent});
          }
      });
     
@@ -104,17 +102,6 @@ app.delete("/:id",function(req,res){
         }
     })
 })
-
-
-
-
-
-
-
-
-
-
-
 
 
 
