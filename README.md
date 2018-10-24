@@ -6,8 +6,6 @@ functionality.
 
 Still to do:
 
-- Style website
 - Display warnings if there is more people than tasks and vice versa.
-- Connect to a database for data persistence. 
 - Add authentication so that people can create their own events 
 - Implement a search bar so people can look for their event and see what task has been assigned to them
