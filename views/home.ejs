@@ -12,17 +12,17 @@
         
         <% for(let i=0; i< events.length; i++){ %>
     
-           <a href = "/<%= events[i]._id %>">
+           <a href = "/events/<%= events[i]._id %>">
                <li id = "<%= events[i]._id %>">
                    <%= events[i].title %>
-                   <span><%= events[i].created.toDateString() %></span>
+                   <span><%= events[i].createdAt.toDateString() %></span>
                 </li>
            </a>
         <% } %>
     </ul>
     
     
-    <form action = "/new" method = "POST">
+    <form action = "/events/new" method = "POST">
         <input type = "text" placeholder = "Event Name" name= "event">
         <input type = "submit" value = "New Event">
     </form>

@@ -1,6 +1,6 @@
 <% include ./partials/header.ejs %>
     
-    <a href = "/"><i class="fas fa-arrow-left"></i></a>
+    <a href = "/events"><i class="fas fa-arrow-left"></i></a>
     <h1><%= event.title %></h1>
 
    <div id ='results'>
@@ -11,7 +11,7 @@
           
         <%  let subjectName = subject.name.replace(/\s/g, ''); %> <!-- Had to remove white space beause of css class issues -->
          <div class = 'subjects <%= subjectName %>'><h3><%= subject.name %></h3>
-          <% for(let i=0; i<subject.tasks.length; i++){ %>
+          <% for(let i=0;(subject.tasks != undefined) && (i<subject.tasks.length); i++){ %>
              
               
               <div class ='list-items'><%= subject.tasks[i].value %></div>
@@ -20,7 +20,7 @@
          <% }); %>
     </div>
     
-    <form action = "\<%= event._id %>?_method=DELETE" method = "POST">
+    <form action = "/events/<%= event._id %>?_method=DELETE" method = "POST">
       <button id = "delete">Delete</button>
     </form>
     

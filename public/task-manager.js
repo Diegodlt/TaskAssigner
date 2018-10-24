@@ -53,13 +53,13 @@ $("#assign").on("click",function(){
     
     $.ajax({
         type: "POST",
-        url: "/",
+        url: "/events",
         data : { subjects: subjectArr, title: title},
         
        
     }).done(function(data){
         console.log(data);
-        window.location.href = "/"+data;
+        window.location.href = "/events/"+data;
     });
 
 });
